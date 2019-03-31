@@ -1,32 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
 import { HeaderComponent } from './header/header.component';
 import { MatComponentsModule } from './mat-components/mat-components.module';
+import { TransactionsComponent } from './transactions/transactions.component';
+import {MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    TransactionsComponent,
     
   ],
   imports: [
-  BrowserModule,
-    AppRoutingModule,
-    MatComponentsModule
-=======
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
     BrowserModule,
-    AppRoutingModule
->>>>>>> refs/remotes/origin/master
+    AppRoutingModule,
+    MatComponentsModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
