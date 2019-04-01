@@ -1,0 +1,9 @@
+#image {
+  float: left;
+}
+
+#components{
+  float: start;
+  padding-left: 50px;
+  padding-top: 400px;
+}
