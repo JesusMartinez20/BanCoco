@@ -6,14 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MatComponentsModule } from './mat-components/mat-components.module';
-import { TransactionsComponent } from './transactions/transactions.component';
+//import { TransactionsComponent } from './transactions/transactions.component';
 import {MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from '@angular/material';
-
+import { LoginComponent } from './login/login.component';
+import { LoginUserLogInComponent } from './login/login-user-log-in/login-user-log-in.component';
+import { SingupRegisterComponent } from './login/singup-register/singup-register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TransactionsComponent,
+    LoginComponent,
+    LoginUserLogInComponent,
+    SingupRegisterComponent,
+    //TransactionsComponent,
     
   ],
   imports: [
@@ -23,7 +29,8 @@ import {MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from '@ang
     HttpClientModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
