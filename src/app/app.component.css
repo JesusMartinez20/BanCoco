@@ -1,9 +1,11 @@
 #image {
-  float: left;
+  text-align:center
+  /*float: left;*/
 }
 
 #components{
-  float: start;
-  padding-left: 50px;
-  padding-top: 400px;
+  text-align: center
+  /*float: start;*/
+  /*padding-left: 50px;*/
+  /*padding-top: 400px;*/
 }
