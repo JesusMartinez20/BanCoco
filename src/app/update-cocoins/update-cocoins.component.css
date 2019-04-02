@@ -15,7 +15,40 @@
     margin-bottom: 10px;
 
   }
-
+  .left{
+    width: 60%;
+    height: 100%;
+    margin-left: 10%;
+    margin-top: 5%;
+    align-content: center;
+}
+.right{
+    width: 50%;
+    height: 100%;
+    margin-top: 5%;
+    border: 10px;
+}
+.bigImage{
+    width: 40%;
+    align-content: center;
+    margin: 1%;
+}
+.blocks{
+    width: 100%;
+    text-align: left;
+    position: relative;
+    justify-content: center;
+    display: flex;
+}
+.blocks > li{
+    position: unset;
+    display: inline-block;
+}
+  .thisFont{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14;
+    max-width: 400px;
+}
 
 mat-form-field, a{
     font-size: 20px;
@@ -24,8 +57,7 @@ mat-form-field, a{
 }
 
 img{
-    height: 80px;
-    width: 400px;
+
     border-radius: 10px;
 }
 
