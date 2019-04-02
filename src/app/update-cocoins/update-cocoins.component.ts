@@ -16,5 +16,6 @@ export class UpdateCocoinsComponent implements OnInit {
     AccountNumber: 'Cuenta de prueba', 
     CardNumber: 'XXXX XXXX XXXX XXXX', 
     TotalCocoins: '1',
+    Image: ''
   }
 }
