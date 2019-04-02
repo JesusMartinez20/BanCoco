@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import {TransactionsComponent} from './transactions/transactions.component';
+import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.component';
+//import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  // { path: 'Transactions', component: TransactionsComponent },
+  { path: '', component: UpdateCocoinsComponent},
 ];
 
 @NgModule({
