@@ -30,31 +30,18 @@
   </mat-form-field>
   <mat-icon>markunread_mailbox</mat-icon>
   <br>
-  <mat-form-field>
-      <input matInput placeholder="CP" formControlName="CP" required>
-  </mat-form-field>
-  <mat-form-field>
-      
-      <mat-label >Estado</mat-label>
-      <mat-select formControlName="State" [(value)]="selected">
-                  <mat-option value="Estados">Estados</mat-option>
-                  <!-- <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>-->
-      </mat-select>
-  </mat-form-field>
+  <mat-form-field style= "width: 340px; ">
+    <input matInput placeholder="Direccion" formControlName="Address" required>     
+</mat-form-field>
   <br>
   <mat-form-field>
-      <input matInput placeholder="Municipio" formControlName="Municipality" required>
-  </mat-form-field>
-  <mat-form-field>
-      <input matInput placeholder="Direccion" formControlName="Address" required>     
-  </mat-form-field>
+    <input matInput placeholder="CP" formControlName="CP" required>
+</mat-form-field>
+<mat-form-field >
+    <input matInput placeholder="Municipio" formControlName="Municipality" required>
+</mat-form-field>
+  
   <br>
-  <mat-form-field>
-      <input matInput placeholder="Tarjeta" formControlName="Card" required>
-  </mat-form-field>
-  <mat-form-field>
-      <input matInput placeholder="CVV" formControlName="CVV" required>
-  </mat-form-field>
   <br>
     <button type="submit" id="signup-button">SignUp</button>
 

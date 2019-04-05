@@ -22,9 +22,6 @@ export class SingupRegisterComponent implements OnInit {
         CP: new FormControl(),
         Municipality: new FormControl(),
         Address: new FormControl(),
-        State: new FormControl(),
-        Card: new FormControl(),
-        CVV: new FormControl()
     });
 
   }
