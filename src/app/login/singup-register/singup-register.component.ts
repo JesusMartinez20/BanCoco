@@ -21,7 +21,6 @@ export class SingupRegisterComponent implements OnInit {
         Email: new FormControl(),
         CP: new FormControl(),
         Municipality: new FormControl(),
-        Address: new FormControl(),
     });
 
   }
