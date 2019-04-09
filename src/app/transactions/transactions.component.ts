@@ -4,7 +4,6 @@ import {Component, OnInit} from '@angular/core';
 // import {MatPaginator, MatSort} from '@angular/material';
 // import {merge, Observable, of as observableOf} from 'rxjs';
 // import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-// import {DataService} from '../data.service';
 
 /*@Component({
   selector: 'app-transactions',
@@ -97,22 +96,13 @@ export class ExampleHttpDatabase {
     return this.http.get<GithubApi>(requestUrl);
   }
 }*/
-
 export interface Payment {
   date: string;
-  position: number;
   price: number;
+  status: string;
+  description: string;
+  institution: string;
 }
-
-const PAYMENT_DATA: Payment[] = [
-  {position: 1, date: 'Mar 31, 2019', price: 200},
-  {position: 2, date: 'Mar 30, 2019', price: 407},
-  {position: 3, date: 'Mar 29, 2019', price: 15},
-];
-
-/**
- * @title Basic use of `<table mat-table>`
- */
 
 @Component({
   selector: 'app-transactions',
@@ -121,7 +111,18 @@ const PAYMENT_DATA: Payment[] = [
 })
 
 export class TransactionsComponent {
-  displayedColumns: string[] = ['position', 'date', 'price'];
+  displayedColumns: string[] = ['date', 'price', 'status', 'description', 'institution'];
   dataSource = PAYMENT_DATA;
 }
+
+
+const PAYMENT_DATA: Payment[] = [
+  {date: 'Mar 31, 2019', price: 200, status: 'payed', description: 'House', institution: 'Houses.com'},
+  {date: 'Mar 30, 2019', price: 407, status: 'payed', description: 'Food', institution: 'Food.com'},
+  {date: 'Mar 29, 2019', price: 15, status: 'payed', description: 'Car', institution: 'Cars.com'},
+];
+
+
+
+
 
