@@ -13,8 +13,8 @@ export class LoginUserLogInComponent implements OnInit {
   Userlogin : FormGroup;
   ngOnInit() {
     this.Userlogin = new FormGroup({
-      User: new FormControl(),
-      Password: new FormControl(),
+      Card: new FormControl(),
+      CVV: new FormControl(),
     })
   }
   onSubmit(){

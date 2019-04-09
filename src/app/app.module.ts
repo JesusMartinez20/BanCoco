@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginUserLogInComponent } from './login/login-user-log-in/login-user-log-in.component';
 import { SingupRegisterComponent } from './login/singup-register/singup-register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,8 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LoginUserLogInComponent,
     SingupRegisterComponent,
+    UpdateCocoinsComponent,
     TransactionsComponent,
-    
+
   ],
   imports: [
     BrowserModule,

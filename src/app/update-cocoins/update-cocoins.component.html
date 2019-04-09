@@ -1,0 +1,36 @@
+<ul class="blocks">
+  <li class="left">
+      <img mat-card-image src="../../assets/cc.png" alt="USER COCO" class="bigImage">
+  </li>
+  <li class="right">
+      <mat-card>
+          <mat-card-content>
+
+                <p class="thisFont">
+                  USUARIO: 
+                  {{card.User}} 
+                </p>
+                
+                <p class="thisFont">
+                  NUMERO DE TARJETA: 
+                  {{card.CardNumber}}
+                </p>
+            
+
+                  <div style=float:right;>
+                    <p>Tu saldo es:  
+                      <textarea disabled></textarea>
+                    </p>
+                    
+                  </div>
+                  <div>
+                    <p class="thisFont">
+                      <label>Cocoins: </label>
+                      <input class="thisFont" name="TotalCocoins" type="number" min="1" max="10000"style="width: 45px"/>
+                      <button type="submit" id="add-button">Agregar Cococoins</button>
+                    </p>
+                  </div>
+        </mat-card-content>
+      </mat-card>
+    </li>
+</ul>
