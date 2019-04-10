@@ -20,8 +20,8 @@ import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.componen
     LoginComponent,
     LoginUserLogInComponent,
     SingupRegisterComponent,
-    UpdateCocoinsComponent,
     TransactionsComponent,
+    UpdateCocoinsComponent,
 
   ],
   imports: [
