@@ -12,9 +12,9 @@ export class UpdateCocoinsComponent implements OnInit {
   ngOnInit() {
   }
   public card = { 
-    User: 'Usuario de prueba', 
-    CardNumber: 'XXXX XXXX XXXX XXXX', 
-    TotalCocoins: '1',
+    Nickname: 'Usuario de prueba', 
+    Tarjeta: 'XXXX XXXX XXXX XXXX', 
+    Fondos: '1',
     Image: ''
   }
 }

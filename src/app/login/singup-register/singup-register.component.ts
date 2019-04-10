@@ -13,14 +13,14 @@ export class SingupRegisterComponent implements OnInit {
   Usersingup : FormGroup;
   ngOnInit() {
     this.Usersingup = new FormGroup({
-        Name: new FormControl(),
-        Lastname: new FormControl(),
-        User: new FormControl(),
-        Password: new FormControl(),
-        Confirmation: new FormControl(),
-        Email: new FormControl(),
+        nombre: new FormControl(),
+        apellidoPaterno: new FormControl(),
+        apellidoMaterno: new FormControl(),
+        nickname: new FormControl(),
+        contrasena: new FormControl(),
+        correo: new FormControl(),
         CP: new FormControl(),
-        Municipality: new FormControl(),
+        municipio: new FormControl(),
     });
 
   }
