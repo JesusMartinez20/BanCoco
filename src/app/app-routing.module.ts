@@ -5,11 +5,12 @@ import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.componen
 import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component: LoginComponent },
+  { path: 'Transactions', component: TransactionsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-}) 
+})
 export class AppRoutingModule { }

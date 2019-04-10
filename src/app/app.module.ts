@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MatComponentsModule } from './mat-components/mat-components.module';
-//import { TransactionsComponent } from './transactions/transactions.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 import {MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { LoginUserLogInComponent } from './login/login-user-log-in/login-user-log-in.component';
@@ -20,9 +20,9 @@ import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.componen
     LoginComponent,
     LoginUserLogInComponent,
     SingupRegisterComponent,
+    TransactionsComponent,
     UpdateCocoinsComponent,
-    //TransactionsComponent,
-    
+
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,37 @@
-<h1>Transactions</h1>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<nav style="text-align: center">
 
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let payment"> {{payment.position}} </td>
-  </ng-container>
+  <h1 style="text-align: start">Transactions</h1>
 
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let payment"> {{payment.date}} </td>
-  </ng-container>
+  <div style="width: 150%">
+    <table mat-table [dataSource]="dataSource" *ngFor="let payment of dataSource" class="mat-elevation-z8">
 
-  <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef> Quantity </th>
-    <td mat-cell *matCellDef="let payment"> {{payment.price}} </td>
-  </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let payment"> {{payment.date}} </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let payment"> {{payment.price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let payment"> {{payment.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let payment"> {{payment.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="institution">
+        <th mat-header-cell *matHeaderCellDef> Institution </th>
+        <td mat-cell *matCellDef="let payment"> {{payment.institution}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let payment; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</nav>
