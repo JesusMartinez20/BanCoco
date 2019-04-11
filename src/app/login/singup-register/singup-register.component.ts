@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { LoginService } from './../../services/login.service';
 
 @Component({
   selector: 'app-singup-register',
@@ -7,25 +8,38 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./singup-register.component.css']
 })
 export class SingupRegisterComponent implements OnInit {
-
-  constructor() { }
+  urlP="/usuarios"
+  
+  email = new FormControl('', [Validators.required, Validators.email]);
+  constructor(private http:LoginService) { }
 
   Usersingup : FormGroup;
   ngOnInit() {
     this.Usersingup = new FormGroup({
-        Name: new FormControl(),
-        Lastname: new FormControl(),
-        User: new FormControl(),
-        Password: new FormControl(),
-        Confirmation: new FormControl(),
-        Email: new FormControl(),
-        CP: new FormControl(),
-        Municipality: new FormControl(),
+        nombre: new FormControl(),
+        apellidoPaterno: new FormControl(),
+        apellidoMaterno: new FormControl(),
+        nickname: new FormControl(),
+        contrasena: new FormControl(),
+        correo: new FormControl(),
+        cp: new FormControl(),
+        municipio: new FormControl(),
     });
 
   }
   onSubmit(){
     console.log(this.Usersingup.value)
+    let form = JSON.stringify(this.Usersingup.value)
+    console.log(form);
+    this.http.url=this.urlP;
+    localStorage.setItem('userId', '');
+    localStorage.getItem('userId');
+    this.http.createUser(form).subscribe(d => console.log(d));
   }
-
+  
+  getErrorMessage() {
+    return this.email.hasError('required') ? '' :
+        this.email.hasError('email') ? 'Correo invalido' :
+            '';
+  }
 }

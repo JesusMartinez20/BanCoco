@@ -2,40 +2,45 @@
   <div >
       <img src="https://qlu.ac.pa/wp-content/uploads/2018/10/Registrate.png" >
   </div>
-    <br>
+  <br>
+  <mat-form-field style="width: 370px; ">
+      <input matInput placeholder="Nombre" formControlName="nombre" required>
+  </mat-form-field>
+  <br>
   <mat-form-field>
-      <input matInput placeholder="Nombre" formControlName="Name" required>
+      <input matInput placeholder="Apellido Paterno" formControlName="apellidoPaterno" required>
   </mat-form-field>
   <mat-form-field>
-      <input matInput placeholder="Apellidos" formControlName="Lastname" required>
+      <input matInput placeholder="Apellido Materno" formControlName="apellidoMaterno" required>
   </mat-form-field>
   <br>
   <mat-form-field style="width: 340px; ">
-      <input matInput placeholder="Usuario" formControlName="User" required>
+      <input matInput placeholder="Usuario" formControlName="nickname" required>
   </mat-form-field>
   <mat-icon>account_circle</mat-icon>
   <br>
   <mat-form-field style="width: 340px; ">
-      <input matInput placeholder="Password" formControlName="Password" required>
+      <input matInput placeholder="Password" formControlName="contrasena" required>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
   <mat-form-field style="width: 340px; ">
-      <input matInput placeholder="Confirmacion" formControlName="Confirmation" required>
+      <input matInput placeholder="Confirmacion" formControlName="contrasena" required>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
   <mat-form-field style="width: 340px; ">
-      <input matInput placeholder="Correo Electronico" formControlName="Email" required>
+      <input matInput placeholder="Correo Electronico" formControlName="correo" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
   <mat-icon>markunread_mailbox</mat-icon>
   <br>
   <br>
   <mat-form-field>
-    <input matInput placeholder="CP" formControlName="CP" required>
+    <input matInput placeholder="CP" formControlName="cp" required>
 </mat-form-field>
 <mat-form-field >
-    <input matInput placeholder="Municipio" formControlName="Municipality" required>
+    <input matInput placeholder="Municipio" formControlName="municipio" required>
 </mat-form-field>
   
   <br>
