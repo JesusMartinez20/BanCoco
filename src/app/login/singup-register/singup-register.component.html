@@ -31,6 +31,7 @@
   <br>
   <mat-form-field style="width: 340px; ">
       <input matInput placeholder="Correo Electronico" formControlName="correo" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
   <mat-icon>markunread_mailbox</mat-icon>
   <br>
