@@ -29,11 +29,11 @@ export class TransactionsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.data.postMethod(this.userId);
+    /*this.data.postMethod(this.userId);
     this.data.getMethod().subscribe(data => {
         this.dataSource = data
       }
-    );
+    );*/
   }
 
 }
