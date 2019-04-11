@@ -13,6 +13,8 @@ import { LoginUserLogInComponent } from './login/login-user-log-in/login-user-lo
 import { SingupRegisterComponent } from './login/singup-register/singup-register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { UpdateCocoinsComponent } from './update-cocoins/update-cocoins.componen
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

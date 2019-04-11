@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost/bancoco',
+  serverUrl: 'http://localhost',
   dataG: '',
 };
 
