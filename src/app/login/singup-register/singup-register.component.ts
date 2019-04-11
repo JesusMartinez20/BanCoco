@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from './../../Services/login.service';
+import { LoginService } from './../../services/login.service';
 
 @Component({
   selector: 'app-singup-register',
@@ -22,7 +22,7 @@ export class SingupRegisterComponent implements OnInit {
         nickname: new FormControl(),
         contrasena: new FormControl(),
         correo: new FormControl(),
-        CP: new FormControl(),
+        cp: new FormControl(),
         municipio: new FormControl(),
     });
 

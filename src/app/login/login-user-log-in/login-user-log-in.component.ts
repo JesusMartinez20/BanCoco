@@ -16,7 +16,7 @@ export class LoginUserLogInComponent implements OnInit {
   ngOnInit() {
     this.Userlogin = new FormGroup({
       tarjeta: new FormControl(),
-      CVV: new FormControl(),
+      cvv: new FormControl(),
     })
   }
   onSubmit(){
