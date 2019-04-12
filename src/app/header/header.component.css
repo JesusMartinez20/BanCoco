@@ -9,11 +9,10 @@
 }
 
 
-mat-toolbar {
-    /* position: fixed; */
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 3;
-    height: 100px;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
 }
