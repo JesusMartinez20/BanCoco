@@ -11,29 +11,23 @@ export class UpdateCocoinsComponent implements OnInit {
   displayedColumns: string[] = ['usuario', 'tarjeta', 'fondos'];
   urlP="";
   form;
+  datosUsuario = [];
 
   constructor(private http: UpdateCocoinsService) { }
   Update: FormGroup;
-  datosUsuario: any;
 
   ngOnInit() {
+    this.http.getMethod().subscribe(data => {
+        this.datosUsuario = [];
+        this.datosUsuario.push(data);
+        console.log(this.datosUsuario);
+      }
+    );
 
     this.Update = new FormGroup({
       fondos: new FormControl()
     });
-
-    this.http.getMethod().subscribe(data => {
-        this.datosUsuario = data;
-        console.log(this.datosUsuario);
-      }
-    );
   }
-  // public card = {
-  //   Nickname: 'Usuario de prueba',
-  //   Tarjeta: 'XXXX XXXX XXXX XXXX',
-  //   Fondos: '1',
-  //   Image: ''
-  // }
 
   onSubmit(){
     console.log(this.Update.value);
