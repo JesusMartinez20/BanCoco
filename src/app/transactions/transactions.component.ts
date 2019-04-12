@@ -1,9 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-// import {HttpClient} from '@angular/common/http';
-// import { ViewChild, AfterViewInit } from '@angular/core';
-// import {MatPaginator, MatSort} from '@angular/material';
-// import {merge, Observable, of as observableOf} from 'rxjs';
-// import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import { STransactionsService } from '../services/s-transactions.service';
 
 @Component({

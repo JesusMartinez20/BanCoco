@@ -1,3 +1,7 @@
 table {
   width: inherit;
 }
+
+.boton {
+  padding-top: 3em;
+}

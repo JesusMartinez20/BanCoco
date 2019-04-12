@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MatComponentsModule } from './mat-components/mat-components.module';
 import { TransactionsComponent } from './transactions/transactions.component';
-import {MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from '@angular/material';
+import {MatButtonModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { LoginUserLogInComponent } from './login/login-user-log-in/login-user-log-in.component';
 import { SingupRegisterComponent } from './login/singup-register/singup-register.component';
@@ -35,7 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     MatTableModule,
     FormsModule, ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
