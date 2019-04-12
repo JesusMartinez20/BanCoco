@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from './../../services/login.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login-user-log-in',
@@ -8,22 +8,24 @@ import { LoginService } from './../../services/login.service';
   styleUrls: ['./login-user-log-in.component.css']
 })
 export class LoginUserLogInComponent implements OnInit {
-  urlP=""
+  urlP="";
+  posts;
 
   constructor(private http:LoginService) { }
 
   Userlogin : FormGroup;
   ngOnInit() {
     this.Userlogin = new FormGroup({
-      tarjeta: new FormControl(),
+      Tarjeta: new FormControl(),
       cvv: new FormControl(),
     })
   }
+
   onSubmit(){
-    console.log(this.Userlogin.value)
-    let form = JSON.stringify(this.Userlogin.value)
+    console.log(this.Userlogin.value);
+    let form = JSON.stringify(this.Userlogin.value);
     console.log(form);
     this.http.url=this.urlP;
-    this.http.postMethod(form);
+    this.posts=this.http.postMethod(form).subscribe(d=>{let i=d.toString();localStorage.setItem('token',i)});
   }
 }

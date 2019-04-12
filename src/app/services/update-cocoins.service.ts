@@ -7,14 +7,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UpdateCocoinsService {
-  url;
+  getUrl = '/usuario.php';
+  postUrl = '';
   constructor(private http: HttpClient) { }
 
   getMethod(){
-    return this.http.get(environment.serverUrl+this.url);
+    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    return this.http.get(environment.serverUrl + this.getUrl);
   }
 
   postMethod(form){
-    return this.http.post(environment.serverUrl+this.url,form);
+    return this.http.post(environment.serverUrl+this.postUrl,form);
   }
 }

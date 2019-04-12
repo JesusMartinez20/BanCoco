@@ -11,11 +11,13 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   getMethod(){
-    return this.http.get(environment.serverUrl+this.url);
+    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    return this.http.get(environment.serverUrl+this.url, {headers: headers});
   }
 
   postMethod(form){
-    return this.http.post(environment.serverUrl+this.url,form);
+    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    return this.http.post(environment.serverUrl+this.url,form, {headers: headers});
   }
 
   createUser(form): Observable<any>{

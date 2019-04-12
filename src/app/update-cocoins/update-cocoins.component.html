@@ -1,33 +1,34 @@
 <form [formGroup]="Update" (ngSubmit)="onSubmit()" >
 <ul class="blocks">
-  <li class="left">
-      <img mat-card-image src="../../assets/cc.png" alt="USER COCO" class="bigImage">
-  </li>
   <li class="right">
       <mat-card>
           <mat-card-content>
 
-                <p class="thisFont">
-                  USUARIO: 
-                  {{card.Nickname}} 
-                </p>
-                
-                <p class="thisFont">
-                  NUMERO DE TARJETA: 
-                  {{card.Tarjeta}}
-                </p>
-            
+                <table mat-table [dataSource]="datosUsuario" class="mat-elevation-z8">
 
-                  <div style=float:right;>
-                    <p>Tu saldo es:  
-                      <textarea disabled></textarea>
-                    </p>
-                    
-                  </div>
+                  <ng-container matColumnDef="usuario">
+                    <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="tarjeta">
+                    <th mat-header-cell *matHeaderCellDef> Tarjeta </th>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.tarjeta}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="fondos">
+                    <th mat-header-cell *matHeaderCellDef> Fondos </th>
+                    <td mat-cell *matCellDef="let usuario"> {{usuario.fondos}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let usuario; columns: displayedColumns;"></tr>
+                </table>
+
                   <div>
                     <p class="thisFont">
                       <label>Cocoins: </label>
-                      <input class="thisFont" name="Fondos" type="number" min="1" max="10000"style="width: 45px"/>
+                      <input class="thisFont" name="Fondos" formControlName="fondos" type="number" min="1" max="10000"style="width: 45px"/>
                       <button type="submit" id="add-button">Agregar Cococoins</button>
                     </p>
                   </div>
