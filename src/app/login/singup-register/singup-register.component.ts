@@ -21,6 +21,7 @@ export class SingupRegisterComponent implements OnInit {
         apellidoMaterno: new FormControl(),
         nickname: new FormControl(),
         contrasena: new FormControl(),
+        confirmacion: new FormControl(),
         correo: new FormControl(),
         cp: new FormControl(),
         municipio: new FormControl(),
@@ -41,5 +42,15 @@ export class SingupRegisterComponent implements OnInit {
     return this.email.hasError('required') ? '' :
         this.email.hasError('email') ? 'Correo invalido' :
             '';
+  }
+  private passwordsMatch = (_form: FormGroup): boolean => {
+    if (_form.controls['contrasena'].touched && _form.controls['confirmacion'].touched) {
+      if (_form.value.contrasena === _form.value.confirmacion) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return true;
   }
 }

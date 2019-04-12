@@ -20,12 +20,22 @@
   <mat-icon>account_circle</mat-icon>
   <br>
   <mat-form-field style="width: 340px; ">
-      <input matInput placeholder="Password" formControlName="contrasena" required>
+    <!--<input matInput placeholder="Password" type="password" formControlName="contrasena" required>-->
+    <input matInput placeholder="Contraseña" [type]="!hide ? 'password' : 'text'" formControlName="contrasena" required >
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+    </button>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
   <mat-form-field style="width: 340px; ">
-      <input matInput placeholder="Confirmacion" formControlName="contrasena" required>
+    <!--<input matInput placeholder="Confirmacion" type="password" required>-->
+    <input matInput placeholder="Confirmacion" [type]="!hide1 ? 'password' : 'text'"  formControlName="confirmacion" required>
+    <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+      <mat-icon>{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+    </button>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
@@ -42,11 +52,15 @@
 <mat-form-field >
     <input matInput placeholder="Municipio" formControlName="municipio" required>
 </mat-form-field>
-  
+  <div *ngIf="!passwordsMatch(Usersingup); else muestraBoton" class="invalid-feedback">
+    <h2>Las contraseñas no coinciden</h2>
+  </div>
   <br>
   <br>
-    <button type="submit" id="signup-button">SignUp</button>
+  <ng-template #muestraBoton>
+    <button type="submit" id="singup-button">SignUp</button>
 
+  </ng-template>
 
     
 </form>

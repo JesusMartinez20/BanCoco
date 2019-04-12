@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-user-log-in',
@@ -11,7 +12,7 @@ export class LoginUserLogInComponent implements OnInit {
   urlP="";
   posts;
 
-  constructor(private http:LoginService) { }
+  constructor(private http:LoginService, private router: Router) { }
 
   Userlogin : FormGroup;
   ngOnInit() {
@@ -27,5 +28,6 @@ export class LoginUserLogInComponent implements OnInit {
     console.log(form);
     this.http.url=this.urlP;
     this.posts=this.http.postMethod(form).subscribe(d=>{let i=d.toString();localStorage.setItem('token',i)});
+    this.router.navigate(['Transactions']);
   }
 }

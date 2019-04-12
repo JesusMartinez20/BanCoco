@@ -1,5 +1,4 @@
-<form [formGroup]="Userlogin">
-<!--      (ngSubmit)="onSubmit()"-->
+<form [formGroup]="Userlogin" (ngSubmit)="onSubmit()">
   <img src="https://elandroidelibre.elespanol.com/wp-content/uploads/2014/05/coconut.png">
   <br>
   <mat-form-field>
@@ -8,9 +7,9 @@
   <mat-icon>credit_card</mat-icon>
   <br>
   <mat-form-field>
-      <input matInput placeholder="CVV" formControlName="CVV" required>
+      <input matInput placeholder="CVV" formControlName="cvv" required>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
-    <button type="submit" id="login-button" routerLink="cocoins">LogIn</button>
+    <button type="submit" id="login-button">LogIn</button>
 </form>
