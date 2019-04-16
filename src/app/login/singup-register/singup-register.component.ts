@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from './../../services/login.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-singup-register',
@@ -35,7 +35,7 @@ export class SingupRegisterComponent implements OnInit {
     this.http.url=this.urlP;
     localStorage.setItem('userId', '');
     localStorage.getItem('userId');
-    this.http.createUser(form).subscribe(d => console.log(d));
+    this.http.createUser(form).subscribe(d => {let i=d.toString();localStorage.setItem('id',i)});
   }
   
   getErrorMessage() {

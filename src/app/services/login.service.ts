@@ -17,11 +17,11 @@ export class LoginService {
 
   postMethod(form){
     const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    return this.http.post(environment.serverUrl+this.url,form, {headers: headers});
+    return this.http.post(environment.serverUrl+this.url, form);
   }
 
   createUser(form): Observable<any>{
     const headers = new HttpHeaders().append('Authorization', 'Bearer ' + localStorage.getItem('token'));
-    return this.http.post(environment.serverUrl+this.url, form, {headers: headers});  
+    return this.http.post(environment.serverUrl+this.url, form);
   }
 }

@@ -1,13 +1,17 @@
 <form [formGroup]="Userlogin" (ngSubmit)="onSubmit()">
-  <img src="https://elandroidelibre.elespanol.com/wp-content/uploads/2014/05/coconut.png">
+  <img alt="Coco" src="https://elandroidelibre.elespanol.com/wp-content/uploads/2014/05/coconut.png">
   <br>
   <mat-form-field>
-      <input matInput placeholder="Tarjeta" formControlName="Tarjeta" required>
+    <label>
+      <input label="Tarjeta" matInput placeholder="Tarjeta" formControlName="Tarjeta" required>
+    </label>
   </mat-form-field>
   <mat-icon>credit_card</mat-icon>
   <br>
   <mat-form-field>
+    <label>
       <input matInput placeholder="CVV" formControlName="cvv" required>
+    </label>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
