@@ -12,18 +12,21 @@ export class UpdateCocoinsComponent implements OnInit {
   urlP="";
   form;
   datosUsuario = [];
+  private id: number;
+  private sId: string;
 
-  constructor(private http: UpdateCocoinsService) { }
+  constructor(private http: UpdateCocoinsService) {
+    this.sId = localStorage.getItem('id');
+    this.id = parseInt(this.sId, 10);
+  }
   Update: FormGroup;
-
   ngOnInit() {
-    this.http.getMethod().subscribe(data => {
+    this.http.getMethod(this.id).subscribe(data => {
         this.datosUsuario = [];
         this.datosUsuario.push(data);
         console.log(this.datosUsuario);
       }
     );
-
     this.Update = new FormGroup({
       fondos: new FormControl()
     });
@@ -35,5 +38,6 @@ export class UpdateCocoinsComponent implements OnInit {
     console.log(form);
     this.http.postUrl=this.urlP;
     this.http.postMethod(form);
+    window.location.reload();
   }
 }
