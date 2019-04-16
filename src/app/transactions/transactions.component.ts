@@ -10,11 +10,16 @@ import { STransactionsService } from '../services/s-transactions.service';
 export class TransactionsComponent implements OnInit {
   displayedColumns: string[] = ['date', 'price', 'status', 'description', 'institution'];
   dataSource: any;
+  private sId: string;
+  private id: number;
 
-  constructor (private data: STransactionsService) { }
+  constructor (private data: STransactionsService) {
+    this.sId = localStorage.getItem('id');
+    this.id = parseInt(this.sId, 10);
+  }
 
   ngOnInit() {
-    this.data.getMethod().subscribe(data => {
+    this.data.getMethod(this.id).subscribe(data => {
         this.dataSource = data;
         console.log(this.dataSource);
       }
