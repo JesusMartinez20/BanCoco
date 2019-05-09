@@ -1,0 +1,42 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  left: 50%;
+}
+
+.text-c{
+  text-align: center;
+}
+
+.example-card {
+  max-width: 400px;
+  min-width: 200px;
+}
+
+.monserrat {
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+}
+
+h1{
+  font-size: 40pt;
+  color: green;
+}
+
+p {
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+
+.background{
+  background-image: url(https://cdn.discordapp.com/attachments/304829873468342283/567886093870039060/PORTADA.jpg);
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  left: 0;
+}

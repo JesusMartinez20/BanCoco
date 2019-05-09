@@ -1,6 +1,24 @@
-<mat-toolbar class="header" color="primary">
-  <div style="width:33%;"></div>
-  <div style="width:33%;">
-      <h1 class= "flex-container center">BANCOCO</h1>
+<mat-toolbar color="primary" fxLayout="row" class="mat-elevation-z8">
+  <div routerLink="/">
+    <mat-icon alt="Angular Logo" style="font-size: 1.5em; user-select: none">attach_money</mat-icon>
+    <span class="logo">BanCoco</span>
   </div>
+  <div fxFlex></div>
+  <button mat-raised-button color="accent" (click)="openRegister()" *ngIf="!loginService.isLoggedIn">
+    REGISTRARSE
+  </button>
+  &nbsp;
+  <button mat-raised-button color="accent" (click)="openLogIn()" *ngIf="!loginService.isLoggedIn">
+    INICIAR SESIÓN
+  </button>
+
+  <button routerLink="transactions" mat-raised-button color="accent" *ngIf="loginService.isLoggedIn">
+    TRANSACCIONES
+  </button>
+
+  <div fxFlex="1"></div>
+
+  <button routerLink="/" mat-raised-button color="accent" (click)="logout()" *ngIf="loginService.isLoggedIn">
+    CERRAR SESIÓN
+  </button>
 </mat-toolbar>

@@ -8,30 +8,37 @@ import {HeaderComponent} from './header/header.component';
 import {MatComponentsModule} from './mat-components/mat-components.module';
 import {TransactionsComponent} from './transactions/transactions.component';
 import {
-  MatButtonModule, MatFormFieldModule, MatInputModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatSnackBar,
   MatSnackBarModule,
   MatTableModule
 } from '@angular/material';
-import {LoginComponent} from './login/login.component';
-import {LoginUserLogInComponent} from './login/login-user-log-in/login-user-log-in.component';
-import {SingupRegisterComponent} from './login/singup-register/singup-register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UpdateCocoinsComponent} from './update-cocoins/update-cocoins.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpConfigInterceptor} from './interceptor/HttpInterceptor';
+import {IndexComponent} from "./index/index.component";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {LoginDialogComponent} from './login-dialog/login-dialog.component';
+import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 
 @NgModule({
+  entryComponents: [
+    LoginDialogComponent,
+    RegisterDialogComponent
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent,
-    LoginUserLogInComponent,
-    SingupRegisterComponent,
     TransactionsComponent,
-    UpdateCocoinsComponent
+    UpdateCocoinsComponent,
+    IndexComponent,
+    LoginDialogComponent,
+    RegisterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,10 @@ import {HttpConfigInterceptor} from './interceptor/HttpInterceptor';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    BrowserAnimationsModule, MatButtonModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

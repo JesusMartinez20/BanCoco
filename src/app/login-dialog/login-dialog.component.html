@@ -1,0 +1,21 @@
+<div mat-dialog-title>
+  <h3>Iniciar sesión</h3>
+</div>
+
+<div mat-dialog-actions>
+  <form fxLayout="column" [formGroup]="loginForm">
+    <mat-form-field>
+      <input matInput type="text" formControlName="username">
+      <mat-label>Nombre de usuario</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password">
+      <mat-label>Contraseña</mat-label>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-content align="end">
+  <button mat-button [mat-dialog-close]="">CERRAR</button>
+  <button mat-flat-button color="primary" (click)="doLogin()">INICIAR SESIÓN</button>
+</div>

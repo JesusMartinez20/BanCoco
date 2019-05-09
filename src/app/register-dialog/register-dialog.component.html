@@ -1,0 +1,81 @@
+<div mat-dialog-title>
+  <h3>Iniciar sesión</h3>
+</div>
+
+<div mat-dialog-actions>
+  <form [formGroup]="Usersingup" fxLayout="column" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="nombre" required>
+      <mat-label>Nombre</mat-label>
+      <mat-error *ngIf="Usersingup.get('nombre')?.errors?.required">Este campo es requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="apellidoPaterno" required>
+      <mat-label>Apellido Paterno</mat-label>
+      <mat-error *ngIf="Usersingup.get('apellidoPaterno')?.errors?.required">Este campo es requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="apellidoMaterno" required>
+      <mat-label>Apellido Materno</mat-label>
+      <mat-error *ngIf="Usersingup.get('apellidoMaterno')?.errors?.required">Este campo es requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="nickname" required>
+      <mat-error *ngIf="Usersingup.get('nickname')?.errors?.required">Este campo es requerido</mat-error>
+      <mat-label>Usuario</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-icon matPrefix>account_circle</mat-icon>
+      <!--<input matInput placeholder="Password" type="password" formControlName="contrasena" required>-->
+      <input matInput [type]="!hide ? 'password' : 'text'" formControlName="contrasena" (keypress)="bla()">
+      <mat-error *ngIf="Usersingup.get('contrasena')?.errors?.required">Este campo es requerido</mat-error>
+      <mat-label>Contraseña</mat-label>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <!--<input matInput placeholder="Confirmacion" type="password" required>-->
+      <mat-error *ngIf="Usersingup.get('confirmacion')?.errors?.required">Este campo es requerido</mat-error>
+      <mat-error *ngIf="Usersingup.get('confirmacion')?.errors?.mismatch">Las contraseñas no coinciden</mat-error>
+
+      <mat-icon matPrefix>vpn_key</mat-icon>
+      <input matInput [type]="!hide1 ? 'password' : 'text'" formControlName="confirmacion">
+
+
+      <mat-label>Confirmación</mat-label>
+      <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide1">
+        <mat-icon>{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+      </button>
+    </mat-form-field>
+    <mat-form-field style="width: 340px; ">
+      <mat-error *ngIf="Usersingup.get('correo')?.errors?.required">Este campo es requerido</mat-error>
+      <mat-icon matPrefix>vpn_key</mat-icon>
+      <input matInput formControlName="correo" required>
+      <mat-label>Correo Electronico</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-icon matPrefix>markunread_mailbox</mat-icon>
+      <input type="number" matInput formControlName="cp" required minlength="5" maxlength="5">
+      <mat-error *ngIf="Usersingup.get('cp')?.errors?.required">Este campo es requerido</mat-error>
+      <mat-error *ngIf="Usersingup.get('cp')?.errors?.milength || Usersingup.get('cp')?.errors?.maxlength">
+        Este campo es requerido
+      </mat-error>
+      <mat-label>CP</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="municipio" required>
+      <mat-error *ngIf="Usersingup.get('municipio')?.errors?.required">Este campo es requerido</mat-error>
+      <mat-label>Municipio</mat-label>
+    </mat-form-field>
+    <div fxLayout="row">
+      <button mat-button [mat-dialog-close]="">CERRAR</button>
+      <button type="submit" mat-flat-button color="primary">REGISTRARSE</button>
+    </div>
+  </form>
+
+</div>
