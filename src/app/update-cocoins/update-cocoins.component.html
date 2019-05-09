@@ -30,7 +30,8 @@
               <mat-label>Fondos</mat-label>
               <input matInput type="number" min="1" max="100000" formControlName="fondos">
               <mat-error *ngIf="cocoinsForm.get('fondos')?.errors?.required">Este campo es requerido</mat-error>
-              <mat-error *ngIf="cocoinsForm.get('fondos')?.errors?.minlength">El minimo requerido es 1</mat-error>
+              <mat-error *ngIf="cocoinsForm.get('fondos')?.errors?.min">El minimo requerido es 1</mat-error>
+              <mat-error *ngIf="cocoinsForm.get('fondos')?.errors?.max">No puedes ingresar tanto dinero</mat-error>
             </mat-form-field>
             <br>
             <button mat-button type="submit">Agregar Cocoins</button>

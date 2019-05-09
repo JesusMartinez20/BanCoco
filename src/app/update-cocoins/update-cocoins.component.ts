@@ -22,7 +22,7 @@ export class UpdateCocoinsComponent implements OnInit {
 
   ngOnInit() {
     this.cocoinsForm = new FormGroup({
-      fondos: new FormControl('', [Validators.required, Validators.minLength(1)])
+      fondos: new FormControl('', [Validators.required, Validators.min(1), Validators.max(100000)])
     });
     this.datosUsuario = this.updateCocoinsService.user.pipe(shareReplay(1));
   }
