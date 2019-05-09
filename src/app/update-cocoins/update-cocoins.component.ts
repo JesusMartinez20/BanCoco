@@ -11,7 +11,7 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./update-cocoins.component.css']
 })
 export class UpdateCocoinsComponent implements OnInit {
-  displayedColumns: string[] = ['usuario', 'tarjeta', 'fondos'];
+  displayedColumns: string[] = ['usuario', 'tarjeta', 'fondos', 'cvv', 'expiracion'];
   datosUsuario: Observable<any[]>;
   cocoinsForm: FormGroup;
 

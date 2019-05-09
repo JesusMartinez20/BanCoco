@@ -16,6 +16,10 @@ export class UpdateCocoinsService {
   }
 
   addCocoins(quantity: number) {
-    return this.http.put(`${environment.serverUrl}/usuarios`, {Fondos: quantity});
+    return this.http.post(`${environment.serverUrl}/transaccion`, {
+      monto: quantity,
+      descripcion: 'Agregar fondos',
+      institucion: 'BanCoco'
+    });
   }
 }
