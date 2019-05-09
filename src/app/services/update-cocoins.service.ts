@@ -1,23 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from 'src/environments/environment';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UpdateCocoinsService {
-  getUrl = '/usuario.php';
-  postUrl = '';
-  constructor(private http: HttpClient) { }
 
-  getMethod(id: number){
-    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    return this.http.get(environment.serverUrl + this.getUrl);
+  constructor(private http: HttpClient) {
   }
 
-  postMethod(form){
-    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    return this.http.post(environment.serverUrl+this.postUrl,form);
+  get user(): Observable<any[]> {
+    return this.http.get<any[]>(`${environment.serverUrl}/usuarios`);
+  }
+
+  addCocoins(quantity: number) {
+    return this.http.put(`${environment.serverUrl}/usuarios`, {Fondos: quantity});
   }
 }

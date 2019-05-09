@@ -2,18 +2,19 @@
   <img alt="Coco" src="https://elandroidelibre.elespanol.com/wp-content/uploads/2014/05/coconut.png">
   <br>
   <mat-form-field>
-    <label>
-      <input label="Tarjeta" matInput placeholder="Tarjeta" formControlName="Tarjeta" required>
-    </label>
+    <input type="text" matInput
+           formControlName="cc" required>
+    <mat-label>Tarjeta de crédito</mat-label>
+    <mat-error *ngIf="Userlogin.get('cc').errors">Este campo es requerido</mat-error>
   </mat-form-field>
   <mat-icon>credit_card</mat-icon>
   <br>
   <mat-form-field>
-    <label>
-      <input matInput placeholder="CVV" formControlName="cvv" required>
-    </label>
+    <input matInput type="password" formControlName="cvv" required>
+    <mat-label>CVV</mat-label>
+    <mat-error *ngIf="Userlogin.get('cvv').errors?.required">Este campo es requerido</mat-error>
   </mat-form-field>
   <mat-icon>vpn_key</mat-icon>
   <br>
-    <button type="submit" id="login-button">LogIn</button>
+  <button mat-button type="submit" id="login-button">Iniciar sesión</button>
 </form>

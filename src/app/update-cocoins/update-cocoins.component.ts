@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
-import { UpdateCocoinsService } from '../services/update-cocoins.service';
+import {Component, OnInit} from '@angular/core';
+import {UpdateCocoinsService} from '../services/update-cocoins.service';
+import {merge, Observable} from 'rxjs';
+import {shareReplay} from 'rxjs/operators';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-update-cocoins',
@@ -9,35 +12,35 @@ import { UpdateCocoinsService } from '../services/update-cocoins.service';
 })
 export class UpdateCocoinsComponent implements OnInit {
   displayedColumns: string[] = ['usuario', 'tarjeta', 'fondos'];
-  urlP="";
-  form;
-  datosUsuario = [];
-  private id: number;
-  private sId: string;
+  datosUsuario: Observable<any[]>;
+  cocoinsForm: FormGroup;
 
-  constructor(private http: UpdateCocoinsService) {
-    this.sId = localStorage.getItem('id');
-    this.id = parseInt(this.sId, 10);
+  constructor(private updateCocoinsService: UpdateCocoinsService,
+              private formBuilder: FormBuilder,
+              private snackbar: MatSnackBar) {
   }
-  Update: FormGroup;
+
   ngOnInit() {
-    this.http.getMethod(this.id).subscribe(data => {
-        this.datosUsuario = [];
-        this.datosUsuario.push(data);
-        console.log(this.datosUsuario);
-      }
-    );
-    this.Update = new FormGroup({
-      fondos: new FormControl()
+    this.cocoinsForm = new FormGroup({
+      fondos: new FormControl('', [Validators.required, Validators.minLength(1)])
     });
+    this.datosUsuario = this.updateCocoinsService.user.pipe(shareReplay(1));
   }
 
-  onSubmit(){
-    console.log(this.Update.value);
-    let form = JSON.stringify(this.Update.value);
-    console.log(form);
-    this.http.postUrl=this.urlP;
-    this.http.postMethod(form);
-    window.location.reload();
+  updateData() {
+    const newData = this.updateCocoinsService.user.pipe(shareReplay(1));
+    this.datosUsuario = merge(this.datosUsuario, newData);
+  }
+
+  addCocoins() {
+    this.cocoinsForm.markAsDirty();
+    if (this.cocoinsForm.valid) {
+      this.updateCocoinsService.addCocoins(this.cocoinsForm.get('fondos').value).subscribe(r => {
+        this.snackbar.open('Fondos agregados correctamente', 'OK', {duration: 2000});
+        this.updateData();
+      }, error => {
+        this.snackbar.open('No se pudieron agregar fondos', 'OK', {duration: 2000});
+      });
+    }
   }
 }

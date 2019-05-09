@@ -14,4 +14,8 @@ export class STransactionsService {
     return this.http.get(environment.serverUrl + this.getUrl + id);
   }
 
+  get transactions() {
+    return this.http.get(`${environment.serverUrl}/transaccion`);
+  }
+
 }

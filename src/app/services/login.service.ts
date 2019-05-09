@@ -7,21 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  url;
   constructor(private http: HttpClient) { }
 
-  getMethod(){
-    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    return this.http.get(environment.serverUrl+this.url, {headers: headers});
-  }
-
-  postMethod(form){
-    const headers = new HttpHeaders().append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    return this.http.post(environment.serverUrl+this.url, form);
-  }
-
-  createUser(form): Observable<any>{
-    const headers = new HttpHeaders().append('Authorization', 'Bearer ' + localStorage.getItem('token'));
-    return this.http.post(environment.serverUrl+this.url, form);
+  login(cc: string, cvv: string) {
+    return this.http.post(`${environment.serverUrl}/login`, {
+      cc: cc,
+      cvv: cvv
+    });
   }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
-import { Router } from '@angular/router'
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {LoginService} from '../../services/login.service';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login-user-log-in',
@@ -9,25 +10,37 @@ import { Router } from '@angular/router'
   styleUrls: ['./login-user-log-in.component.css']
 })
 export class LoginUserLogInComponent implements OnInit {
-  urlP="";
+  urlP = '';
   posts;
 
-  constructor(private http:LoginService, private router: Router) { }
-
-  Userlogin : FormGroup;
-  ngOnInit() {
-    this.Userlogin = new FormGroup({
-      Tarjeta: new FormControl(),
-      cvv: new FormControl(),
-    })
+  constructor(private loginService: LoginService,
+              private router: Router,
+              private snackbar: MatSnackBar) {
   }
 
-  onSubmit(){
-    console.log(this.Userlogin.value);
-    let form = JSON.stringify(this.Userlogin.value);
+  Userlogin: FormGroup;
+
+  ngOnInit() {
+    this.Userlogin = new FormGroup({
+      cc: new FormControl('', [Validators.required]),
+      cvv: new FormControl('', [Validators.required]),
+    });
+  }
+
+  onSubmit() {
+    this.Userlogin.markAsDirty();
+    console.log(this.Userlogin);
+    const form = JSON.stringify(this.Userlogin.value);
     console.log(form);
-    this.http.url=this.urlP;
-    this.posts=this.http.postMethod(form).subscribe(d=>{let i=d.toString();localStorage.setItem('id',i)});
-    this.router.navigate(['Transactions']);
+    if (this.Userlogin.valid) {
+      this.loginService
+        .login(this.Userlogin.get('cc').value, this.Userlogin.get('cvv').value)
+        .subscribe(ok => {
+          localStorage.setItem('token', (ok as any).token);
+          this.router.navigate(['Transactions']);
+        }, error => {
+          this.snackbar.open('Credenciales incorrectas', 'OK', {duration: 2000});
+        });
+    }
   }
 }

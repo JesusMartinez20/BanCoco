@@ -1,43 +1,43 @@
 <div class="hamana">
-<form [formGroup]="Update" (ngSubmit)="onSubmit()" >
-<ul class="blocks">
-  <li class="right">
+  <ul class="blocks">
+    <li class="right">
       <mat-card style="width: 400px">
-          <mat-card-content>
-                <nav>
-                  <table mat-table [dataSource]="datosUsuario" style="width: 100%">
+        <mat-card-content>
+          <nav>
+            <table mat-table [dataSource]="datosUsuario | async" style="width: 100%">
+              <ng-container matColumnDef="usuario">
+                <th mat-header-cell *matHeaderCellDef> Usuario</th>
+                <td mat-cell *matCellDef="let usuario"> {{usuario.Nickname}} </td>
+              </ng-container>
 
+              <ng-container matColumnDef="tarjeta">
+                <th mat-header-cell *matHeaderCellDef> Tarjeta</th>
+                <td mat-cell *matCellDef="let usuario"> {{usuario.Tarjeta}} </td>
+              </ng-container>
 
-                    <ng-container matColumnDef="usuario">
-                      <th mat-header-cell *matHeaderCellDef> Usuario </th>
-                      <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
-                    </ng-container>
+              <ng-container matColumnDef="fondos">
+                <th mat-header-cell *matHeaderCellDef> Fondos</th>
+                <td mat-cell *matCellDef="let usuario"> {{usuario.Fondos}} </td>
+              </ng-container>
 
-                    <ng-container matColumnDef="tarjeta">
-                      <th mat-header-cell *matHeaderCellDef> Tarjeta </th>
-                      <td mat-cell *matCellDef="let usuario"> {{usuario.tarjeta}} </td>
-                    </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let usuario; columns: displayedColumns;"></tr>
+            </table>
+          </nav>
 
-                    <ng-container matColumnDef="fondos">
-                      <th mat-header-cell *matHeaderCellDef> Fondos </th>
-                      <td mat-cell *matCellDef="let usuario"> {{usuario.fondos}} </td>
-                    </ng-container>
+          <form [formGroup]="cocoinsForm" (ngSubmit)="addCocoins()">
+            <mat-form-field>
+              <mat-label>Fondos</mat-label>
+              <input matInput type="number" min="1" max="100000" formControlName="fondos">
+              <mat-error *ngIf="cocoinsForm.get('fondos')?.errors?.required">Este campo es requerido</mat-error>
+              <mat-error *ngIf="cocoinsForm.get('fondos')?.errors?.minlength">El minimo requerido es 1</mat-error>
+            </mat-form-field>
+            <br>
+            <button mat-button type="submit">Agregar Cocoins</button>
+          </form>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let usuario; columns: displayedColumns;"></tr>
-                  </table>
-                </nav>
-
-                  <div>
-                    <p class="thisFont">
-                      <label>Cocoins: </label>
-                      <input class="thisFont" name="Fondos" formControlName="fondos" type="number" min="1" max="10000"style="width: 45px"/>
-                      <button type="submit" id="add-button">Agregar Cococoins</button>
-                    </p>
-                  </div>
         </mat-card-content>
       </mat-card>
     </li>
-</ul>
-</form>
+  </ul>
 </div>
